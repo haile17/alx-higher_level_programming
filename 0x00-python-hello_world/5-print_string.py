@@ -1,4 +1,4 @@
-#!/user/bin/ python3
+#!/user/bin/python
 str = "Holberton School"
 print("{}".format(str) * 3)
 print(str[:9])
