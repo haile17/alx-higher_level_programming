@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 def add_tuple(tuple_a=(), tuple_b=()):
-    tuple = ()
-    tup1 = tuple_a + (0, 0)
-    tup2 = tuple_b + (0, 0)
-    tuple = tup1[0] + tup2[0], tup1[1] + tup2[1]
-    return 
+    # If too long, cut the tuple to the first 2 elements
+    # if too short, extend the tuple to match length 2
+    a = tuple_a[:2] + (0,) * (2 - len(tuple_a))
+    b = tuple_b[:2] + (0,) * (2 - len(tuple_b))
+    c = [x + y for x, y in zip(a, b)]
+    return tuple(c[0:2])
