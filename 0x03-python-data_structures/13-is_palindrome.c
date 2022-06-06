@@ -1,31 +1,70 @@
 #include "lists.h"
+#include <stdio.h>
 
-/*
- * palindrom -  recursive palind or not
- * @head: head list
- * Return: 0 if it is not a palindrome
- * 1 if it is a palindrome
- */
 int is_palindrome(listint_t **head)
 {
-	if (head == NULL || *head == NULL)
-		return (1);
-		return (aux_palind(head, *head));
+  listint_t *nhead, *tort, *hare, *ptort;
+  listint_t *cut = NULL, *half, *it1, *it2;
+
+  if (!head || !*head)
+    return (1);
+
+  nhead = *head;
+  if (nhead->next != NULL)
+    {
+      for (hare = nhead, tort = nhead; hare != NULL && hare->next != NULL;
+	   ptort = tort, tort = tort->next)
+	hare = hare->next->next;
+      if (hare != NULL)
+	{
+	  cut = tort;
+	  tort = tort->next;
+	}
+      ptort->next = NULL;
+      half = tort;
+      it1 = reverse_listint(&half);
+      for (it2 = *head; it2; it1 = it1->next, it2 = it2->next)
+	{
+	  if (it2->n != it1->n)
+	    return (0);
+	}
+      if (cut == NULL)
+	ptort->next = half;
+      else
+	{
+	  ptort->next = cut;
+	  cut->next = half;
+	}
+    }
+
+  return (1);
 }
 
 /*
- * aux_palind - funct to know if is palindrome
- * @head: head list
- * @end: end list
+ * reverse_listint - Reverses a linked list in pladce
+ * @head: Pointer to a pointer pointing to the first item in the list
+ *
+ * Return: The new head of the reversed list
  */
-int aux_palind(listint_t **head, listint_t *end)
+listint_t *reverse_listint(listint_t **head)
 {
-	if (end == NULL)
-		return (1);
-	if (aux_palind(head, end->next) && (*head)->n == end->n)
-	{
-		*head = (*head)->next;
-		return (1);
-	}
-	return (0);
+  listint_t *next = NULL, *prev = NULL;
+
+  if (!head || !*head)
+    return (NULL);
+
+  while ((*head)->next)
+    {
+      next = (*head)->next;
+
+      (*head)->next = prev;
+
+      prev = *head;
+
+      *head = next;
+    }
+
+  (*head)->next = prev;
+
+  return (*head);
 }
