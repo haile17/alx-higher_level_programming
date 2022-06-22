@@ -3,7 +3,6 @@
 defines a class Square
 """
 
-
 class Square():
     """
     This square represent a class 
