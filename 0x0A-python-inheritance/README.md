@@ -18,11 +18,19 @@ Filename	Description
 4-inherits_from.py	Function that returns True if the object is an instance of a class that inherited from the specified class
 
 5-base_geometry.py	Empty class BaseGeometry
+
 6-base_geometry.py	Class BaseGeometry with public instance method def area(self):
+
 7-base_geometry.py	Class BaseGeometry with public instance method that verifies if the input arg is an integer
+
 8-rectangle.py	Class Rectangle that inhertis from BaseGeometry
+
 9-rectangle.py	Class Rectangle that inhertis from BaseGeometry, with area() method implemented
+
 10-square.py	Class Square that inherits from Rectangle
+
 11-square.py	Class Square that inherits from Rectangle, with str() method
+
 100-my_int.py	Class MyInt that inhertis from int. Its == and != operators are inverted
+
 101-add_attribute.py	Function that adds a new attribute to an object if it's possible
