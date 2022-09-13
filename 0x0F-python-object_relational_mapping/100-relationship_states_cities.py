@@ -26,26 +26,3 @@ if __name__ == "__main__":
     cal_state = State(name='California')
     sfr_city = City(name='San Francisco')
     cal_state.cities.append(sfr_city)
-
-<<<<<<< HEAD
-if __name__ == '__main__':
-    if len(sys.argv) >= 4:
-        user = sys.argv[1]
-        pword = sys.argv[2]
-        db_name = sys.argv[3]
-        DATABASE_URL = 'mysql://{}:{}@localhost:3306/{}'.format(
-            user, pword, db_name
-        )
-        engine = create_engine(DATABASE_URL)
-        Base.metadata.create_all(engine)
-        session = sessionmaker(bind=engine)()
-        new_state = State(name='California')
-        new_city = City(name='San Francisco')
-        new_state.cities(new_city) 
-        session.add(new_state)
-        session.commit()
-=======
-    session.add(cal_state)
-    session.commit()
-    session.close()
->>>>>>> 05990da4666716889734fbaddcfcf7af2778fca6
