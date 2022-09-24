@@ -6,7 +6,7 @@ https://alx-intranet.hbtn.io/status with a package request
 import requests
 
 if __name__ == "__main__":
-    r = requests.get('https://alx-intanet.hbtn.io/status')
-    print('Body response:')
-    print('\t- type: {}'.format(type(r.text)))
-    print('\t- content: {}'.format(r.text))
+    r = requests.get("https://intanet.hbtn.io/status")
+    print("Body response:")
+    print("\t- type: {}".format(type(r.text)))
+    print("\t- content: {}".format(r.text))
