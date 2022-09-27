@@ -8,5 +8,9 @@ response header using a package requests and sys
 import requests
 import sys
 if __name__ == "__main__":
-    r = requests.Request(sys.argv[1])
-    print(r.headers.get("X-requests-Id"))
+    url = sys.argv[1]
+    url_o = requests.get(url)
+    if "X-Request-Id" in url_o.headers:
+        print(url_o.headers["X-Request-Id"])
+    else:
+        print(None)
